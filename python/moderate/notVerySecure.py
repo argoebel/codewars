@@ -10,11 +10,18 @@ def alphanumeric(password):
     else:
         return False
 
+pattern = re.compile('^[0-9a-zA-Z]+$')
+
+def alphanumeric_better(string):
+    print(pattern.match(string))
+    return pattern.match(string) is not None
+
 def alphanumeric_best(password):
     return password.isalnum()
 
 
-alphanumeric("PassW0rd")
-alphanumeric("Abc@123")
-alphanumeric("demo  _")
-alphanumeric("  ")
+alphanumeric_better("PassW0rd")
+alphanumeric_better("Abc@123")
+alphanumeric_better("demo  _")
+alphanumeric_better("  ")
+alphanumeric_better("")
